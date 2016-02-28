@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Demo</title>
+</head>
+<body>
+<div id="demo"><h2>准备变身了~！</h2></div>
+<button type="button" onclick="loadDoc()">改变文字</button>
+<script>
+    function loadDoc(){
+        var xHttp = new XMLHttpRequest();  //  IE7+
+        // var xHttp = new ActiveXObject("Microsoft.XMLHTTP") // IE5,6
+//        var xhttp;
+//        if (window.XMLHttpRequest) {
+//            xhttp = new XMLHttpRequest();
+//        } else {
+//            // code for IE6, IE5
+//            xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//        }
+        xHttp.onreadystatechange = function(){
+            if(xHttp.readyState ==4 && xHttp.status == 200){
+                document.getElementById("demo").innerHTML = xHttp.responseText;
+            }
+        };
+        // To send a request to a server, we use the open() and send() methods of the XMLHttpRequest object
+//        method: the type of request: GET or POST
+//        url: the server (file) location
+//        async: true (asynchronous) or false (synchronous)
+        xHttp.open("GET", "ajax_info.txt", true);
+//        send()	    Sends the request to the server (used for GET)
+//        send(string)	Sends the request to the server (used for POST)
+        xHttp.send();
+        // GET 比 POST 更加简单快速，可以在很多情况下被使用
+        // POST 用在：1. 缓存文件不是一个选项(更新服务器上的文件或数据库)。 2. 向服务器发送大量数据（POST 没有数据大小限制）
+        // 3. 不会将用户输入的字符显示到 url 上
+    }
+</script>
+</body>
+</html>
