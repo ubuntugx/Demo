@@ -2,19 +2,31 @@
  * Created by ThinkPad on 2016/2/27.
  */
 requirejs.config({
-    // ÏÂÃæµÄÓÃ baseUrl + path È¥ÕÒ
-    // ³ı·ÇÒÔÏÂÈıÖÖÇé¿ö£º
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ baseUrl + path È¥ï¿½ï¿½
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     // Ends in ".js".
     // Starts with a "/".
     // Contains an URL protocol, like "http:" or "https:".
     baseUrl: 'scripts/lib',
 
-    // pathsÊôĞÔÖ¸¶¨¸÷¸öÄ£¿éµÄ¼ÓÔØÂ·¾¶
+    // pathsï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Â·ï¿½ï¿½
     paths: {
         "jquery": "jquery-1.12.1.min",
+        // jcanvas ç¬¦åˆ AMD æ ¼å¼æ‰€ä»¥ä¸ç”¨å†™ shim
         "jcanvas": "jcanvas"
-    }
+    },
+    //shim: {
+    //    "jcanvas": {
+    //        defs: ["jquery"],
+    //        exports: "jcanvas"
+    //    }
+    //}
 });
 requirejs(["jquery", "jcanvas"],function($, jCanvas){
-
+    $("canvas").drawArc({
+        draggable: true,
+        fillStyle: "green",
+        x: 100, y: 100,
+        radius: 50
+    });
 });
