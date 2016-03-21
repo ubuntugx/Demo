@@ -47,7 +47,8 @@ class AwesomeProject extends Component {
 		console.log('value: '+value);
 	};
 	_clearAndFocusInput = () => {
-		console.log(this.refs.theInput.props.value);
+		// console.log(this.refs.theInput.props.value);
+		console.log(this.state.userInput);
 		this.setState({userInput: ''}, function () {
 			// 取得它的真实 DOM 节点，然后获得焦点
 			this.refs.theInput.focus();
