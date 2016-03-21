@@ -53,6 +53,15 @@ class MyButton extends Component{
 			// 因为 TouchableOpacity 本身也是一个复合组件，所以在执行 setNativeProps 以外
 			// 还要对触摸事件进行处理，所以还要传递 props
 			// 与之相对的是 TouchableHighLight 它由原生视图构成，所以只需要实现 setNativeProps
+			
+			// 组件传递 http://reactjs.cn/react/docs/transferring-props.html
+                        // 传入的属性将会被复制到组件内，这里就是将父组件的属性传递给子组件
+      
+                        // 这里的 this 是父组件 myButton
+                        // 组件的 props 不要修改，因为 React 不能帮你检查属性类型，即使属性类型错误也不会有提示
+                        // 所以即使你知道组件的全部类型，也不要把它们全部罗列在上面
+                        // 所以有组件的新特性：展开属性 {...this.props}
+                        // 传入对象的属性将会被复制到组件内，注意后面的属性会覆盖前面的
 			<View ref={component => this._root = component} {...this.props} style={styles.button}>
 			    <Text>{this.props.label}</Text>
 			</View>
