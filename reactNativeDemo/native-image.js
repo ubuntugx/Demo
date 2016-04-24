@@ -4,11 +4,9 @@ import React, {
   Component,
   Image,
   StyleSheet,
-  Text,
-  View,
-}
+} from 'react-native';
 
-class myComponent extends Compontent{
+class AwesomeProject extends Component{
 	render(){
 		return(
 		    <Image
@@ -24,6 +22,7 @@ class myComponent extends Compontent{
 		)
 	}
 }
+AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject)
 
 // 在通过不同情况显示不同图片时，require 最好整体写，不要和里面的路径分开
 var icon = this.state.active ? require('./my-icon-active.png') : require('.my-icon-inactive.png');
